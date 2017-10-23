@@ -44,12 +44,22 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRI
 This will return an `appId` and `password`. Make sure to save these as we will need them when setting up the cloud provider integration.
 
 ## Update the KET plan file
-Use your favorite editor to enter the following information in the sample plan file:
+Create a copy of the sample file:
+```
+cp kismatic-cluster.yaml.sample kismatic-cluster.yaml
+```
+
+Use your favorite editor to enter the following information in `kismatic-cluster.yaml`:
 * Private IP of all nodes
 * Public IP of `kubernetes-api` load balancer in the `load_balanced_fqdn` and `load_balanced_short_name` fields.
 * Admin password
 
 ## Update the cloud provider config file
+Create a copy of the sample file:
+```
+cp azure-cloud-provider.conf.sample azure-cloud-provider.conf
+```
+
 Kubernetes can integrate with Azure to create Load Balancers and Persitent Volumes on demand. To enable this capabilities, set the required information in the `azure-cloud-provider.conf` file.
 
 The following fields must be updated with your Azure account information:
