@@ -1,0 +1,72 @@
+cluster:
+  name: kubernetes
+  admin_password: 
+  cloud_provider:
+    provider: azure
+    config: "/home/ketadmin/azure-cloud-provider.conf"
+
+  networking:
+    pod_cidr_block: 172.16.0.0/16
+    service_cidr_block: 172.20.0.0/16
+
+  certificates:
+    expiry: 17520h
+    ca_expiry: 17520h
+
+  ssh:
+    user: ketadmin
+    ssh_key: /home/ketadmin/.ssh/id_rsa
+    ssh_port: 22
+
+add_ons:
+  cni:
+    disable: false
+    provider: weave
+
+etcd:
+  expected_count: 3
+  nodes:
+  - host: "etcd-0"
+    ip: "10.0.1.4"
+    labels: {}
+  - host: "etcd-1"
+    ip: "10.0.1.6"
+    labels: {}
+  - host: "etcd-2"
+    ip: "10.0.1.7"
+    labels: {}
+
+master:
+  expected_count: 2
+
+  # If you have set up load balancing for master nodes, enter the FQDN name here.
+  # Otherwise, use the IP address of a single master node.
+  load_balanced_fqdn:
+
+  # If you have set up load balancing for master nodes, enter the short name here.
+  # Otherwise, use the IP address of a single master node.
+  load_balanced_short_name:
+  nodes:
+  - host: "master-0"
+    ip: "10.0.1.11"
+    labels: {}
+  - host: "master-1"
+    ip: "10.0.1.10"
+    labels: {}
+
+worker:
+  expected_count: 2
+  nodes:
+  - host: "worker-0"
+    ip: "10.0.1.9"
+    labels: {}
+  - host: "worker-1"
+    ip: "10.0.1.5"
+    labels: {}
+
+ingress:
+  expected_count: 1
+  nodes:
+  - host: "worker-0"
+    ip: "10.0.1.9"
+    labels: {}
