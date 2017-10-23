@@ -14,7 +14,7 @@ The cluster will use WeaveNet as the CNI provider.
 * Etcd, master and worker nodes are in their own Availability Set.
 * The kubernetes API is accessible through a load balancer that has a public IP address.
 * Default network security groups are created for etcd, master and worker nodes. The master node security group allows access to the API Server port from the internet.
-* The default user account is `ketadmin`
+* The default Linux user account is `ketadmin`
 
 # Requirements
 * Azure account
