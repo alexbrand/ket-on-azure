@@ -3,6 +3,8 @@
 This guide will walk you through setting up a production Kubernetes cluster on 
 Azure infrastructure using the [Kismatic Enterprise Toolkit (KET)](https://github.com/apprenda/kismatic).
 
+The cluster will use WeaveNet as the CNI provider.
+
 # Azure Architecture
 * Nodes live in a single VNet.
 * Nodes live in a single subnet.
