@@ -76,6 +76,9 @@ Download KET v1.6.0:
 wget https://github.com/apprenda/kismatic/releases/download/v1.6.0/kismatic-v1.6.0-linux-amd64.tar.gz -O- | tar xz
 ```
 
+Copy the SSH key into the bastion host at `~/.ssh/id_rsa`. KET does not currently
+support encrypted private keys, so you must decrypt it first if it is encrypted.
+
 Provision the cluster:
 ```
 ./kismatic install apply
